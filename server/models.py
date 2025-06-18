@@ -14,3 +14,12 @@ class Plant(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'<Plant {self.name} | In Stock: {self.is_in_stock}>'
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "image": self.image,
+            "price": self.price,
+            "is_in_stock": self.is_in_stock,
+        }
